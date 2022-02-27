@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from cart.forms import CartAddProductForm
-from .models import Category, Product
-
+from .models import Category, Product,ContactUs
+from .forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
 # from django.views import generic
 
 # class IndexView(generic.ListView):
@@ -63,3 +64,20 @@ def product_detail(request, id, slug):
 #         context['products'] = get_object_or_404(Product, 
 #         id=id, slug=slug, available=True)
 #         return context
+
+
+def about(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['admin@example.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('shop:product_list')
+    return render(request, "shop/base/about.html", {'form': form})
