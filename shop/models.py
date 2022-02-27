@@ -38,3 +38,19 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop:product_detail', args=[self.id, self.slug])
+
+
+
+class ContactUs(models.Model):
+    """[contact model]
+
+    Args:
+        models ([class]): [create contact form]
+
+    """
+    from_email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.from_email
