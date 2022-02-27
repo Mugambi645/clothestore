@@ -19,7 +19,12 @@
                     <div class="col-6 col-md-4 order-3 order-md-3 text-right">
                         <div class="site-top-icons">
                             <ul>
-                                <li><a href="#"><span class="icon icon-person"></span></a></li>
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'logout' %}"></span>Logout</a></li>
+                                <li><a href="">Welcome {{user.username}}</a></li>
+                                {% else %}
+                                <li><a href="{% url 'login' %}"><span class="icon icon-person"></span></a></li>
+                                {% endif %}
                                 <li>
                                     <a href="{% url "cart:cart_detail" %}" class="site-cart">
                                         <span class="icon icon-shopping_cart"></span>

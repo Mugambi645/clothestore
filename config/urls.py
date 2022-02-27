@@ -11,5 +11,6 @@ urlpatterns = [
     path('coupons/', include('coupons.urls', namespace='coupons')),
     path('', include('shop.urls', namespace='shop')),
     path("accounts/", include("django.contrib.auth.urls")),
+    path('', include('users.urls', namespace='users')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
