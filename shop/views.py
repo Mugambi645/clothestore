@@ -66,7 +66,7 @@ def product_detail(request, id, slug):
 #         return context
 
 
-def about(request):
+def contact(request):
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -80,4 +80,6 @@ def about(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('shop:product_list')
-    return render(request, "shop/base/about.html", {'form': form})
+    return render(request, "shop/base/contact.html", {'form': form})
+def about(request):
+    return render(request, "shop/base/about.html")

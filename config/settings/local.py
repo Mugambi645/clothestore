@@ -40,6 +40,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+SOCIAL_AUTH_GITHUB_KEY = '2089ce4bd171db78699e'
+SOCIAL_AUTH_GITHUB_SECRET = '789f6938c236cc80b200ba4eea9560a096c642cb'
+SOCIAL_AUTH_URL_NAMESPACE = "social"
 
 ROOT_URLCONF = 'config.urls'
 
