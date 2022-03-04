@@ -8,7 +8,7 @@ import dotenv
 SECRET_KEY = 'django-insecure-!h(1qwe$-ml2$jxgt+x5!x_lfm%o#@idfr$p5=+=z82oqw8h8='
 
 DEBUG = False
-
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '5yo93-8a^%idwkzxz@6gq67p2ml#sraf4=7#pqg+28mv)koo@m'
