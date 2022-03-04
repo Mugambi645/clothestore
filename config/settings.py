@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     'coupons.apps.CouponsConfig',
     "users",
-    'social_django', 
+    #'social_django', 
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-AUTHENTICATION_BACKENDS = (
+"""AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
@@ -61,7 +61,7 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_GITHUB_KEY = '2089ce4bd171db78699e'
 SOCIAL_AUTH_GITHUB_SECRET = '789f6938c236cc80b200ba4eea9560a096c642cb'
 SOCIAL_AUTH_URL_NAMESPACE = "social"
-
+"""
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
