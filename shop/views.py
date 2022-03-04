@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404,redirect
 from cart.forms import CartAddProductForm
 from .models import Category, Product,ContactUs
 from .forms import ContactForm
+from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail, BadHeaderError
 # from django.views import generic
 
@@ -16,7 +17,7 @@ from django.core.mail import send_mail, BadHeaderError
 #         ).order_by('-created')[:5]
 
 
-
+@login_required
 def product_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
