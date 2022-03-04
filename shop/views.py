@@ -64,22 +64,15 @@ def product_detail(request, id, slug):
 #         context['products'] = get_object_or_404(Product, 
 #         id=id, slug=slug, available=True)
 #         return context
-
-
 def contact(request):
-    if request.method == 'GET':
-        form = ContactForm()
-    else:
+    if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
-            message = form.cleaned_data['message']
-            try:
-                send_mail(subject, message, from_email, ['admin@example.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect('shop:product_list')
-    return render(request, "shop/base/contact.html", {'form': form})
+            form.save()
+            return render(request, 'shop/base/sucess.html')
+    form = ContactForm()
+    context = {'form': form}
+    return render(request, 'shop/base/contact.html', context)
+
 def about(request):
     return render(request, "shop/base/about.html")

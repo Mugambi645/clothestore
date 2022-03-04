@@ -1,8 +1,23 @@
 {% extends "shop/base/base.html" %}
 {% block content %}
+<div class="container" style="padding: 50px;">
+	
 <form action = "" method = "post">
 	{% csrf_token %}
 	{{form }}
-	<input type="submit" value=Submit">
+	<input type="submit" value=Submit>
 </form>
+</div>
+<style>
+	input[type=text], input[type=email], textarea {
+ width: 100%;
+ padding: 12px 20px;
+ margin: 8px 0;
+ display: inline-block;
+}
+
+
+
+
+</style>
 {% endblock %}
