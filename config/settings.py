@@ -4,7 +4,9 @@ import django_heroku
 import dj_database_url
 
 import dotenv
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 SECRET_KEY = 'django-insecure-!h(1qwe$-ml2$jxgt+x5!x_lfm%o#@idfr$p5=+=z82oqw8h8='
 
 DEBUG = False
@@ -164,7 +166,11 @@ MESSAGE_TAGS = {
         messages.ERROR: 'alert-danger',
 }
 # Bottom of the file
-
+cloudinary.config( 
+  cloud_name = "dgjtu9gvn", 
+  api_key = "129752669554243", 
+  api_secret = "9f7PWZty2n1W_CfRccWscy27JWQ" 
+)
 # Static files (CSS, JavaScript, Images)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
