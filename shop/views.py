@@ -77,3 +77,5 @@ def contact(request):
 
 def about(request):
     return render(request, "shop/base/about.html")
+
+def
